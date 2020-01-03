@@ -156,11 +156,11 @@ public class ImageAnalysisAppController {
     
     @FXML
     void autocontrast() {
-    	double brightVal = (int) (128 - ((histogram.getA() + histogram.getB())/2));
+    	int brightVal = (int) (128 - ((histogram.getA() + histogram.getB())/2));
     	brightnessSlider.setValue(brightVal);
     	//brightness = (int) brightnessSlider.getValue();
     	brightnessChanged();
-    	double contrastVal =  255.0 / (double)(histogram.getB() - histogram.getA());
+    	double contrastVal =  255.0 /(histogram.getB() - histogram.getA());
     	contrastSlider.setValue(contrastVal);
     	//contrast = contrastSlider.getValue();
     	contrastChanged();

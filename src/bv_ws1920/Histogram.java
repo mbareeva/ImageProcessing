@@ -50,11 +50,12 @@ public class Histogram {
 		for (int i = 0; i < histogram.length; i++) {
 			histogram[i] = 0;
 		}
-		double horizR = ellipseSize.getWidth() / 2;
-		double verticR = ellipseSize.getHeight() / 2;
+		double horizR = ellipseSize.getWidth();
+		double verticR = ellipseSize.getHeight();
 		for (int y = 0; y < image.height; y++) {
 			for (int x = 0; x < image.width; x++) {
-				int pixel = (int) (Math.pow((x / horizR), 2) + Math.pow((y / verticR), 2));
+				int pixel = (int) ((Math.pow(x - ellipseCenter.getX(),2)) / (Math.pow(horizR, 2)) +
+                        (Math.pow(y - ellipseCenter.getY(),2) / (Math.pow(verticR,2))));
 				if (pixel <= 1) {
 					int value = image.argb[y * image.width + x];
 					int r = (value >> 16) & 0xff;
