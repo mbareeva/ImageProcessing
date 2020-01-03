@@ -158,13 +158,14 @@ public class ImageAnalysisAppController {
     void autocontrast() {
     	double brightVal = (int) (128 - ((histogram.getA() + histogram.getB())/2));
     	brightnessSlider.setValue(brightVal);
-    	double contrastVal =  255.0 / (histogram.getB() - histogram.getA());
+    	//brightness = (int) brightnessSlider.getValue();
+    	brightnessChanged();
+    	double contrastVal =  255.0 / (double)(histogram.getB() - histogram.getA());
     	contrastSlider.setValue(contrastVal);
+    	//contrast = contrastSlider.getValue();
+    	contrastChanged();
     	gammaSlider.setValue(1.0);
-    	processImage();
-    	
-    //	brightness = (int) (128 - ((histogram.getA() + histogram.getB())/2));
-   // 	contrast = 255.0 / (histogram.getB() - histogram.getA());
+    	gammaChanged();
     }
     
     @FXML
@@ -323,7 +324,7 @@ public class ImageAnalysisAppController {
         
 		toneCurve.setBrightness(brightness);
 		toneCurve.setGamma(gamma);
-		toneCurve.setContrast((int) contrast);
+		toneCurve.setContrast(contrast);
        
 		RasterImage img = new RasterImage(originalImage);
 		img.applyToneCurve(toneCurve);

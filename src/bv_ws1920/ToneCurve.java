@@ -18,7 +18,7 @@ public class ToneCurve {
     
     private int brightness = 0;
     private double gamma = 1.0;
-    private double contrast = 0;
+    private double contrast = 1.0;
     
     private int[] grayTable = new int[grayLevels];
 
@@ -55,6 +55,7 @@ public class ToneCurve {
 					grayOut = 0;
 				}
 			grayTable[i] = grayOut;
+		//	grayTable[grayOut] += grayTable[i];
 		}
 	}
 	

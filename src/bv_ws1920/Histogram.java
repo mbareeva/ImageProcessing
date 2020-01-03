@@ -27,8 +27,8 @@ public class Histogram {
 	private int[] histogram = new int[grayLevels];
 	
 	//initialize min and max for autocontrast
-	public double A;
-	public double B;
+	public int A;
+	public int B;
 
 	public Histogram(GraphicsContext gc, int maxHeight) {
 		this.gc = gc;
@@ -36,11 +36,11 @@ public class Histogram {
 	}
 
 	
-	public double getA() {
+	public int getA() {
 		return A;
 	}
 	
-	public double getB() {
+	public int getB() {
 		return B;
 	}
 	public void update(RasterImage image, Point2D ellipseCenter, Dimension2D ellipseSize, int selectionMax,
